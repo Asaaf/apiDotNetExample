@@ -7,15 +7,15 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddScoped<IHelloWorldService, HelloWorldService>(); //Inyección de dependencias usando la interface
 //builder.Services.AddScoped(p=> new HelloWorldService());//Inyección de dependencias usando la clase sin interface
-//builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    //app.UseSwagger();//Middleware
-    //app.UseSwaggerUI();//Middleware
+    app.UseSwagger();//Middleware
+    app.UseSwaggerUI();//Middleware
 }
 
 app.UseHttpsRedirection();//Middleware

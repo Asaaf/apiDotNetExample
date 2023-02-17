@@ -20,14 +20,20 @@ public class WeatherForecastController : ControllerBase
         _logger = logger;
         if (ListWeatherForecast == null || !ListWeatherForecast.Any())
         {
-            InitList();
+            ListWeatherForecast = Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            {
+                Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
+                TemperatureC = Random.Shared.Next(-20, 55),
+                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
+            })
+                .ToList();
         }
     }
 
     [HttpGet(Name = "GetWeatherForecast")]
-    [Route("ruta1/prueba1")]//Ruta personalizada
-    [Route("ruta2/prueba2")]//Otra ruta personalizada
-    [Route("[action]")]//Ruta para acceder usando el nombre del método
+    //[Route("ruta1/prueba1")]//Ruta personalizada
+    //[Route("ruta2/prueba2")]//Otra ruta personalizada
+    //[Route("[action]")]//Ruta para acceder usando el nombre del método
     public IEnumerable<WeatherForecast> Get()
     {
         _logger.LogInformation("Retornando la lista de weather forecast");//Muestra por consola un mensaje
@@ -57,14 +63,4 @@ public class WeatherForecastController : ControllerBase
         return Ok();
     }
 
-    public void InitList()
-    {
-        ListWeatherForecast = Enumerable.Range(1, 5).Select(index => new WeatherForecast
-        {
-            Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            TemperatureC = Random.Shared.Next(-20, 55),
-            Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-        })
-            .ToList();
-    }
 }
