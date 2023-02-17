@@ -30,6 +30,8 @@ public class WeatherForecastController : ControllerBase
     [Route("[action]")]//Ruta para acceder usando el nombre del método
     public IEnumerable<WeatherForecast> Get()
     {
+        _logger.LogInformation("Retornando la lista de weather forecast");//Muestra por consola un mensaje
+        _logger.LogDebug("Retornando la lista de weather forecast");//Muestra por consola un mensaje siempre y cuando appsettings.json tenga habilitado el logLevel en Debug
         return ListWeatherForecast;
     }
 
