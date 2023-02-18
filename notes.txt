@@ -1,0 +1,33 @@
+CONEXIÓN A BASES DE DATOS
+
+    ------------------------------------------------------------------------------
+    ENTITY FRAMEWORK CORE
+
+    Se instala Entity Framework Core (ORM para conectar la API a la base de datos)
+    Recomendable instalarlo de la página de nuget.org y que sea la última versión
+    estable.
+    URL: https://www.nuget.org/packages/Microsoft.EntityFrameworkCore/6.0.4
+
+    > dotnet add package Microsoft.EntityFrameworkCore --version 6.0.4
+
+    -------------------------------------------------------------------------------
+    ENTITY FRAMEWORK CORE IN MEMORY
+
+    Para probar, se usa una base de datos en memoria, a lo cual instalamos el 
+    paquete Entity Framework Core In Memory. Aunque algunos usuarios usan la base 
+    de datos in-Memory para realizar pruebas, esta no es una práctica recomendada. 
+    El proveedor SQLite en este modo es un reemplazo de prueba más adecuado para 
+    las bases de datos relacionales.
+    URL: https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.InMemory/6.0.3
+
+    > dotnet add package Microsoft.EntityFrameworkCore.InMemory --version 6.0.3
+
+    -------------------------------------------------------------------------------
+    ENTITY FRAMEWORK CORE SQL SERVER
+
+    Finalmente es necesario instalar el paquete Entity Framework Core SQL SERVER
+    para poder establecer la conexión con la base de datos, que en este caso es 
+    SQL Server.
+    URL: https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer/6.0.3
+
+    > dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 6.0.3
